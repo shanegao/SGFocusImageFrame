@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB2F44FB158D6FDF009E59BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F44FA158D6FDF009E59BA /* UIKit.framework */; };
+		FB2F44FD158D6FDF009E59BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F44FC158D6FDF009E59BA /* Foundation.framework */; };
+		FB2F44FF158D6FDF009E59BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F44FE158D6FDF009E59BA /* CoreGraphics.framework */; };
+		FB2F4505158D6FDF009E59BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB2F4503158D6FDF009E59BA /* InfoPlist.strings */; };
+		FB2F4507158D6FDF009E59BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F4506158D6FDF009E59BA /* main.m */; };
+		FB2F450B158D6FDF009E59BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F450A158D6FDF009E59BA /* AppDelegate.m */; };
+		FB2F450E158D6FDF009E59BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F450D158D6FDF009E59BA /* ViewController.m */; };
+		FB2F4511158D6FDF009E59BA /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2F450F158D6FDF009E59BA /* ViewController_iPhone.xib */; };
+		FB2F4514158D6FDF009E59BA /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2F4512158D6FDF009E59BA /* ViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FB2F44F6158D6FDF009E59BA /* SGFocusImageFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGFocusImageFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2F44FA158D6FDF009E59BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB2F44FC158D6FDF009E59BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB2F44FE158D6FDF009E59BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB2F4502158D6FDF009E59BA /* SGFocusImageFrame-Info.plist */ = {isa = PBXFileReference; path = "SGFocusImageFrame-Info.plist"; sourceTree = "<group>"; };
+		FB2F4504158D6FDF009E59BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB2F4506158D6FDF009E59BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB2F4508158D6FDF009E59BA /* SGFocusImageFrame-Prefix.pch */ = {isa = PBXFileReference; path = "SGFocusImageFrame-Prefix.pch"; sourceTree = "<group>"; };
+		FB2F4509158D6FDF009E59BA /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB2F450A158D6FDF009E59BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB2F450C158D6FDF009E59BA /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		FB2F450D158D6FDF009E59BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB2F4510158D6FDF009E59BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		FB2F4513158D6FDF009E59BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB2F44F3158D6FDF009E59BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2F44FB158D6FDF009E59BA /* UIKit.framework in Frameworks */,
+				FB2F44FD158D6FDF009E59BA /* Foundation.framework in Frameworks */,
+				FB2F44FF158D6FDF009E59BA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB2F44EB158D6FDF009E59BA = {
+			isa = PBXGroup;
+			children = (
+				FB2F4500158D6FDF009E59BA /* SGFocusImageFrame */,
+				FB2F44F9158D6FDF009E59BA /* Frameworks */,
+				FB2F44F7158D6FDF009E59BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB2F44F7158D6FDF009E59BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F44F6158D6FDF009E59BA /* SGFocusImageFrame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB2F44F9158D6FDF009E59BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F44FA158D6FDF009E59BA /* UIKit.framework */,
+				FB2F44FC158D6FDF009E59BA /* Foundation.framework */,
+				FB2F44FE158D6FDF009E59BA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB2F4500158D6FDF009E59BA /* SGFocusImageFrame */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F4509158D6FDF009E59BA /* AppDelegate.h */,
+				FB2F450A158D6FDF009E59BA /* AppDelegate.m */,
+				FB2F450C158D6FDF009E59BA /* ViewController.h */,
+				FB2F450D158D6FDF009E59BA /* ViewController.m */,
+				FB2F450F158D6FDF009E59BA /* ViewController_iPhone.xib */,
+				FB2F4512158D6FDF009E59BA /* ViewController_iPad.xib */,
+				FB2F4501158D6FDF009E59BA /* Supporting Files */,
+			);
+			path = SGFocusImageFrame;
+			sourceTree = "<group>";
+		};
+		FB2F4501158D6FDF009E59BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F4502158D6FDF009E59BA /* SGFocusImageFrame-Info.plist */,
+				FB2F4503158D6FDF009E59BA /* InfoPlist.strings */,
+				FB2F4506158D6FDF009E59BA /* main.m */,
+				FB2F4508158D6FDF009E59BA /* SGFocusImageFrame-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB2F44F5158D6FDF009E59BA /* SGFocusImageFrame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2F4517158D6FDF009E59BA /* Build configuration list for PBXNativeTarget "SGFocusImageFrame" */;
+			buildPhases = (
+				FB2F44F2158D6FDF009E59BA /* Sources */,
+				FB2F44F3158D6FDF009E59BA /* Frameworks */,
+				FB2F44F4158D6FDF009E59BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SGFocusImageFrame;
+			productName = SGFocusImageFrame;
+			productReference = FB2F44F6158D6FDF009E59BA /* SGFocusImageFrame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB2F44ED158D6FDF009E59BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Shane Gao";
+			};
+			buildConfigurationList = FB2F44F0158D6FDF009E59BA /* Build configuration list for PBXProject "SGFocusImageFrame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB2F44EB158D6FDF009E59BA;
+			productRefGroup = FB2F44F7158D6FDF009E59BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB2F44F5158D6FDF009E59BA /* SGFocusImageFrame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB2F44F4158D6FDF009E59BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2F4505158D6FDF009E59BA /* InfoPlist.strings in Resources */,
+				FB2F4511158D6FDF009E59BA /* ViewController_iPhone.xib in Resources */,
+				FB2F4514158D6FDF009E59BA /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB2F44F2158D6FDF009E59BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2F4507158D6FDF009E59BA /* main.m in Sources */,
+				FB2F450B158D6FDF009E59BA /* AppDelegate.m in Sources */,
+				FB2F450E158D6FDF009E59BA /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FB2F4503158D6FDF009E59BA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2F4504158D6FDF009E59BA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FB2F450F158D6FDF009E59BA /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2F4510158D6FDF009E59BA /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		FB2F4512158D6FDF009E59BA /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2F4513158D6FDF009E59BA /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB2F4515158D6FDF009E59BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB2F4516158D6FDF009E59BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB2F4518158D6FDF009E59BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SGFocusImageFrame/SGFocusImageFrame-Prefix.pch";
+				INFOPLIST_FILE = "SGFocusImageFrame/SGFocusImageFrame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FB2F4519158D6FDF009E59BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SGFocusImageFrame/SGFocusImageFrame-Prefix.pch";
+				INFOPLIST_FILE = "SGFocusImageFrame/SGFocusImageFrame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB2F44F0158D6FDF009E59BA /* Build configuration list for PBXProject "SGFocusImageFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2F4515158D6FDF009E59BA /* Debug */,
+				FB2F4516158D6FDF009E59BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2F4517158D6FDF009E59BA /* Build configuration list for PBXNativeTarget "SGFocusImageFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2F4518158D6FDF009E59BA /* Debug */,
+				FB2F4519158D6FDF009E59BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB2F44ED158D6FDF009E59BA /* Project object */;
+}
