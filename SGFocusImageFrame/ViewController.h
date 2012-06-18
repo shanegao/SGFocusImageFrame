@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SGFocusImageFrame.h"
+#import "SGFocusImageItem.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <SGFocusImageFrameDelegate>
 
 @end
