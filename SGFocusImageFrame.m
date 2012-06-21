@@ -20,7 +20,8 @@
 @end
 
 static NSString *SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
-static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0;
+
+static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
 
 @implementation SGFocusImageFrame
 
@@ -75,7 +76,6 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0;
     
     CGSize size = CGSizeMake(100, 44);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.bounds.size.width *.5 - size.width *.5, self.bounds.size.height - size.height, size.width, size.height)];
-    _pageControl.pageIndicatorTintColor = [UIColor redColor];
     
     [self addSubview:_scrollView];
     [self addSubview:_pageControl];

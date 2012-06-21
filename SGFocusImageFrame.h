@@ -20,7 +20,7 @@
 
 @interface SGFocusImageFrame : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
-- (id)initWithFrame:(CGRect)frame delegate:(id /*<SGFocusImageFrameDelegate>*/)delegate focusImageItems:(SGFocusImageItem *)items, ... NS_REQUIRES_NIL_TERMINATION;
+- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)items, ... NS_REQUIRES_NIL_TERMINATION;
 
 @property (nonatomic, assign) id<SGFocusImageFrameDelegate> delegate;
 @end
