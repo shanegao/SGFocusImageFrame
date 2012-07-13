@@ -56,7 +56,6 @@
     SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 80.0)
                                                                     delegate:self
                                                              focusImageItems:item1, item2, item3, item4, nil];
-    imageFrame.delegate = self;
     [self.view addSubview:imageFrame];
     
     [imageFrame release];
