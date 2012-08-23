@@ -14,8 +14,6 @@
 		FB2F4507158D6FDF009E59BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F4506158D6FDF009E59BA /* main.m */; };
 		FB2F450B158D6FDF009E59BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F450A158D6FDF009E59BA /* AppDelegate.m */; };
 		FB2F450E158D6FDF009E59BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F450D158D6FDF009E59BA /* ViewController.m */; };
-		FB2F4511158D6FDF009E59BA /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2F450F158D6FDF009E59BA /* ViewController_iPhone.xib */; };
-		FB2F4514158D6FDF009E59BA /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2F4512158D6FDF009E59BA /* ViewController_iPad.xib */; };
 		FB2F451C158D7018009E59BA /* SGFocusImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F451B158D7018009E59BA /* SGFocusImageFrame.m */; };
 		FB2F451F158D7210009E59BA /* SGFocusImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F451E158D7210009E59BA /* SGFocusImageItem.m */; };
 		FB91385A158F2E2800ABEFB5 /* banner1.png in Resources */ = {isa = PBXBuildFile; fileRef = FB913856158F2E2800ABEFB5 /* banner1.png */; };
@@ -37,8 +35,6 @@
 		FB2F450A158D6FDF009E59BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FB2F450C158D6FDF009E59BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FB2F450D158D6FDF009E59BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FB2F4510158D6FDF009E59BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		FB2F4513158D6FDF009E59BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		FB2F451A158D7018009E59BA /* SGFocusImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageFrame.h; sourceTree = "<group>"; };
 		FB2F451B158D7018009E59BA /* SGFocusImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageFrame.m; sourceTree = "<group>"; };
 		FB2F451D158D7210009E59BA /* SGFocusImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageItem.h; sourceTree = "<group>"; };
@@ -101,8 +97,6 @@
 				FB2F450A158D6FDF009E59BA /* AppDelegate.m */,
 				FB2F450C158D6FDF009E59BA /* ViewController.h */,
 				FB2F450D158D6FDF009E59BA /* ViewController.m */,
-				FB2F450F158D6FDF009E59BA /* ViewController_iPhone.xib */,
-				FB2F4512158D6FDF009E59BA /* ViewController_iPad.xib */,
 				FB2F4501158D6FDF009E59BA /* Supporting Files */,
 			);
 			path = SGFocusImageFrame;
@@ -183,8 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2F4505158D6FDF009E59BA /* InfoPlist.strings in Resources */,
-				FB2F4511158D6FDF009E59BA /* ViewController_iPhone.xib in Resources */,
-				FB2F4514158D6FDF009E59BA /* ViewController_iPad.xib in Resources */,
 				FB91385A158F2E2800ABEFB5 /* banner1.png in Resources */,
 				FB91385B158F2E2800ABEFB5 /* banner2.png in Resources */,
 				FB91385C158F2E2800ABEFB5 /* banner3.png in Resources */,
@@ -216,22 +208,6 @@
 				FB2F4504158D6FDF009E59BA /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FB2F450F158D6FDF009E59BA /* ViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB2F4510158D6FDF009E59BA /* en */,
-			);
-			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		FB2F4512158D6FDF009E59BA /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB2F4513158D6FDF009E59BA /* en */,
-			);
-			name = ViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
