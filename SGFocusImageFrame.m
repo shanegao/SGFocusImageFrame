@@ -26,6 +26,19 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
 @implementation SGFocusImageFrame
 @synthesize delegate = _delegate;
 
+- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+        [self setupViews];
+        
+        [self setDelegate:delegate];
+    }
+    return self;
+}
+
 - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)firstItem, ...
 {
     self = [super initWithFrame:frame];

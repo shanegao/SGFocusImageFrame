@@ -32,4 +32,8 @@
     return self;
 }
 
++ (id)itemWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
+{
+    return [[[SGFocusImageItem alloc] initWithTitle:title image:image tag:tag] autorelease];
+}
 @end

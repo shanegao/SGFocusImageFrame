@@ -15,4 +15,5 @@
 @property (nonatomic, assign)  NSInteger     tag;
 
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag;
++ (id)itemWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag;
 @end

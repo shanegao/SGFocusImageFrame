@@ -59,6 +59,11 @@
     [self.view addSubview:imageFrame];
     
     [imageFrame release];
+    
+    
+    NSArray *imageItems = [NSArray arrayWithObjects:item1, item2, item3, item4, nil];
+    SGFocusImageFrame *bottomImageFrame = [[[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 80.f) delegate:self focusImageItemsArrray:imageItems] autorelease];
+    [self.view addSubview:bottomImageFrame];
 }
 
 #pragma mark -
