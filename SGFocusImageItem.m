@@ -9,16 +9,6 @@
 #import "SGFocusImageItem.h"
 
 @implementation SGFocusImageItem
-@synthesize title =  _title;
-@synthesize image =  _image;
-@synthesize tag =  _tag;
-
-- (void)dealloc
-{
-    [_title release];
-    [_image release];
-    [super dealloc];
-}
 
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
 {
@@ -34,6 +24,6 @@
 
 + (id)itemWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
 {
-    return [[[SGFocusImageItem alloc] initWithTitle:title image:image tag:tag] autorelease];
+    return [[SGFocusImageItem alloc] initWithTitle:title image:image tag:tag];
 }
 @end

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB154E8E179A615C00E32B31 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB154E8B179A615C00E32B31 /* Default-568h@2x.png */; };
+		FB154E8F179A615C00E32B31 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB154E8C179A615C00E32B31 /* Default.png */; };
+		FB154E90179A615C00E32B31 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB154E8D179A615C00E32B31 /* Default@2x.png */; };
+		FB154E95179B575400E32B31 /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB154E91179B575400E32B31 /* photo1.jpg */; };
+		FB154E96179B575400E32B31 /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB154E92179B575400E32B31 /* photo2.jpg */; };
+		FB154E97179B575400E32B31 /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB154E93179B575400E32B31 /* photo3.jpg */; };
+		FB154E98179B575400E32B31 /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB154E94179B575400E32B31 /* photo4.jpg */; };
 		FB2F44FB158D6FDF009E59BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F44FA158D6FDF009E59BA /* UIKit.framework */; };
 		FB2F44FD158D6FDF009E59BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F44FC158D6FDF009E59BA /* Foundation.framework */; };
 		FB2F44FF158D6FDF009E59BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F44FE158D6FDF009E59BA /* CoreGraphics.framework */; };
@@ -23,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB154E8B179A615C00E32B31 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FB154E8C179A615C00E32B31 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FB154E8D179A615C00E32B31 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FB154E91179B575400E32B31 /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		FB154E92179B575400E32B31 /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
+		FB154E93179B575400E32B31 /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo3.jpg; sourceTree = "<group>"; };
+		FB154E94179B575400E32B31 /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo4.jpg; sourceTree = "<group>"; };
 		FB2F44F6158D6FDF009E59BA /* SGFocusImageFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGFocusImageFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2F44FA158D6FDF009E59BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB2F44FC158D6FDF009E59BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +131,13 @@
 		FB913855158F2E2800ABEFB5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FB154E91179B575400E32B31 /* photo1.jpg */,
+				FB154E92179B575400E32B31 /* photo2.jpg */,
+				FB154E93179B575400E32B31 /* photo3.jpg */,
+				FB154E94179B575400E32B31 /* photo4.jpg */,
+				FB154E8B179A615C00E32B31 /* Default-568h@2x.png */,
+				FB154E8C179A615C00E32B31 /* Default.png */,
+				FB154E8D179A615C00E32B31 /* Default@2x.png */,
 				FB913856158F2E2800ABEFB5 /* banner1.png */,
 				FB913857158F2E2800ABEFB5 /* banner2.png */,
 				FB913858158F2E2800ABEFB5 /* banner3.png */,
@@ -176,11 +197,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB154E90179A615C00E32B31 /* Default@2x.png in Resources */,
 				FB2F4505158D6FDF009E59BA /* InfoPlist.strings in Resources */,
+				FB154E95179B575400E32B31 /* photo1.jpg in Resources */,
 				FB91385A158F2E2800ABEFB5 /* banner1.png in Resources */,
 				FB91385B158F2E2800ABEFB5 /* banner2.png in Resources */,
+				FB154E97179B575400E32B31 /* photo3.jpg in Resources */,
+				FB154E96179B575400E32B31 /* photo2.jpg in Resources */,
 				FB91385C158F2E2800ABEFB5 /* banner3.png in Resources */,
+				FB154E8F179A615C00E32B31 /* Default.png in Resources */,
 				FB91385D158F2E2800ABEFB5 /* banner4.png in Resources */,
+				FB154E8E179A615C00E32B31 /* Default-568h@2x.png in Resources */,
+				FB154E98179B575400E32B31 /* photo4.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +289,9 @@
 		FB2F4518158D6FDF009E59BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shane Gao (JU977CFHHA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SGFocusImageFrame/SGFocusImageFrame-Prefix.pch";
 				INFOPLIST_FILE = "SGFocusImageFrame/SGFocusImageFrame-Info.plist";
@@ -272,6 +303,7 @@
 		FB2F4519158D6FDF009E59BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SGFocusImageFrame/SGFocusImageFrame-Prefix.pch";
 				INFOPLIST_FILE = "SGFocusImageFrame/SGFocusImageFrame-Info.plist";

@@ -30,7 +30,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
 {
     self = [super initWithFrame:frame];
     if (self) {
-        objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         [self setupViews];
         
@@ -57,7 +57,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
             va_end(argumentList);
         }
         
-        objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, imageItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, imageItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         [self setupViews];
         
@@ -68,28 +68,17 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
 
 - (void)dealloc
 {
-    objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [_scrollView release];
-    [_pageControl release];
-    [super dealloc];
+    objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 #pragma mark - private methods
 - (void)setupViews
 {
-    NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    NSArray *imageItems = objc_getAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY);
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.width, self.height)];
     
     CGSize size = CGSizeMake(100, 44);
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.bounds.size.width *.5 - size.width *.5, self.bounds.size.height - size.height, size.width, size.height)];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.width *.5 - size.width *.5, self.height - size.height, size.width, size.height)];
     
     [self addSubview:_scrollView];
     [self addSubview:_pageControl];
@@ -99,6 +88,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
     _scrollView.layer.borderWidth = 1 ;
     _scrollView.layer.borderColor = [[UIColor lightGrayColor ] CGColor];
     */
+    _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.pagingEnabled = YES;
     
@@ -112,25 +102,20 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
     tapGestureRecognize.delegate = self;
     tapGestureRecognize.numberOfTapsRequired = 1;
     [_scrollView addGestureRecognizer:tapGestureRecognize];
-    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * imageItems.count, _scrollView.frame.size.height);
+    _scrollView.contentSize = CGSizeMake(_scrollView.width * imageItems.count, _scrollView.height);
     for (int i = 0; i < imageItems.count; i++) {
         SGFocusImageItem *item = [imageItems objectAtIndex:i];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _scrollView.width, 0, _scrollView.width, _scrollView.height)];
         imageView.image = item.image;
         [_scrollView addSubview:imageView];
-        [imageView release];
     }
-    [tapGestureRecognize release];
-    
-    [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
-    //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)switchFocusImageItems
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchFocusImageItems) object:nil];
     
-    CGFloat targetX = _scrollView.contentOffset.x + _scrollView.frame.size.width;
+    CGFloat targetX = _scrollView.contentOffset.x + _scrollView.width;
     [self moveToTargetPosition:targetX];
     
     [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
@@ -139,7 +124,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
 - (void)singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
     NSLog(@"%s", __FUNCTION__);
-    NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
+    NSArray *imageItems = objc_getAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY);
     int page = (int)(_scrollView.contentOffset.x / _scrollView.frame.size.width);
     if (page > -1 && page < imageItems.count) {
         SGFocusImageItem *item = [imageItems objectAtIndex:page];
@@ -160,6 +145,15 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
     [_scrollView setContentOffset:CGPointMake(targetX, 0) animated:YES] ;
     _pageControl.currentPage = (int)(_scrollView.contentOffset.x / _scrollView.frame.size.width);
 }
+
+- (void)setAutoScrolling:(BOOL)enable
+{
+    _autoScrolling = enable;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchFocusImageItems) object:nil];
+    if (_autoScrolling) {
+         [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
+    }
+}
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -168,4 +162,51 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
     
 }
 
+@end
+
+@implementation UIView (Layout)
+- (CGFloat)x
+{
+    return self.frame.origin.x;
+}
+
+- (void)setX:(CGFloat)xx
+{
+    CGRect viewFrame = self.frame;
+    viewFrame.origin.x = xx;
+    self.frame = viewFrame;
+}
+- (CGFloat)y
+{
+    return self.frame.origin.y;
+}
+
+- (void)setY:(CGFloat)yy
+{
+    CGRect viewFrame = self.frame;
+    viewFrame.origin.y = yy;
+    self.frame = viewFrame;
+}
+
+- (CGFloat)width
+{
+    return self.frame.size.width;
+}
+- (void)setWidth:(CGFloat)w
+{
+    CGRect viewFrame = self.frame;
+    viewFrame.size.width = w;
+    self.frame = viewFrame;
+}
+
+- (CGFloat)height
+{
+    return self.frame.size.height;
+}
+- (void)setHeight:(CGFloat)h
+{
+    CGRect viewFrame = self.frame;
+    viewFrame.size.height = h;
+    self.frame = viewFrame;
+}
 @end

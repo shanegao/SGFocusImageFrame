@@ -22,6 +22,18 @@
 
 - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)items, ... NS_REQUIRES_NIL_TERMINATION;
 - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items;
+
+@property (nonatomic, assign) BOOL autoScrolling;
 @property (nonatomic, assign) id<SGFocusImageFrameDelegate> delegate;
 @end
 
+@interface UIView (Layout)
+- (CGFloat)x;
+- (void)setX:(CGFloat)xx;
+- (CGFloat)y;
+- (void)setY:(CGFloat)yy;
+- (CGFloat)width;
+- (void)setWidth:(CGFloat)w;
+- (CGFloat)height;
+- (void)setHeight:(CGFloat)h;
+@end
