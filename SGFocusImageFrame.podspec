@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "SGFocusImageItem"
+  s.name         = "SGFocusImageFrame"
   s.platform     = :ios
   s.version      = "1.0.1"
   s.summary      = "Focus Image scroll View"
