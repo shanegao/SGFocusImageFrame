@@ -22,7 +22,6 @@
 		FB2F450B158D6FDF009E59BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F450A158D6FDF009E59BA /* AppDelegate.m */; };
 		FB2F450E158D6FDF009E59BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F450D158D6FDF009E59BA /* ViewController.m */; };
 		FB2F451C158D7018009E59BA /* SGFocusImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F451B158D7018009E59BA /* SGFocusImageFrame.m */; };
-		FB2F451F158D7210009E59BA /* SGFocusImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F451E158D7210009E59BA /* SGFocusImageItem.m */; };
 		FB91385A158F2E2800ABEFB5 /* banner1.png in Resources */ = {isa = PBXBuildFile; fileRef = FB913856158F2E2800ABEFB5 /* banner1.png */; };
 		FB91385B158F2E2800ABEFB5 /* banner2.png in Resources */ = {isa = PBXBuildFile; fileRef = FB913857158F2E2800ABEFB5 /* banner2.png */; };
 		FB91385C158F2E2800ABEFB5 /* banner3.png in Resources */ = {isa = PBXBuildFile; fileRef = FB913858158F2E2800ABEFB5 /* banner3.png */; };
@@ -51,8 +50,6 @@
 		FB2F450D158D6FDF009E59BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FB2F451A158D7018009E59BA /* SGFocusImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageFrame.h; sourceTree = "<group>"; };
 		FB2F451B158D7018009E59BA /* SGFocusImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageFrame.m; sourceTree = "<group>"; };
-		FB2F451D158D7210009E59BA /* SGFocusImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageItem.h; sourceTree = "<group>"; };
-		FB2F451E158D7210009E59BA /* SGFocusImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageItem.m; sourceTree = "<group>"; };
 		FB913856158F2E2800ABEFB5 /* banner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner1.png; sourceTree = "<group>"; };
 		FB913857158F2E2800ABEFB5 /* banner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner2.png; sourceTree = "<group>"; };
 		FB913858158F2E2800ABEFB5 /* banner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner3.png; sourceTree = "<group>"; };
@@ -76,8 +73,6 @@
 		FB2F44EB158D6FDF009E59BA = {
 			isa = PBXGroup;
 			children = (
-				FB2F451D158D7210009E59BA /* SGFocusImageItem.h */,
-				FB2F451E158D7210009E59BA /* SGFocusImageItem.m */,
 				FB2F451A158D7018009E59BA /* SGFocusImageFrame.h */,
 				FB2F451B158D7018009E59BA /* SGFocusImageFrame.m */,
 				FB2F4500158D6FDF009E59BA /* SGFocusImageFrame */,
@@ -223,7 +218,6 @@
 				FB2F450B158D6FDF009E59BA /* AppDelegate.m in Sources */,
 				FB2F450E158D6FDF009E59BA /* ViewController.m in Sources */,
 				FB2F451C158D7018009E59BA /* SGFocusImageFrame.m in Sources */,
-				FB2F451F158D7210009E59BA /* SGFocusImageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,14 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SGFocusImageItem;
-@class SGFocusImageFrame;
+
+
+@interface SGFocusImageItem : NSObject
+@property (nonatomic, strong)  NSString     *title;
+@property (nonatomic, strong)  UIImage      *image;
+@property (nonatomic, assign)  NSInteger     tag;
+
+- (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag;
++ (id)itemWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag;
+@end
+
 
 #pragma mark - SGFocusImageFrameDelegate
+@class SGFocusImageFrame;
 @protocol SGFocusImageFrameDelegate <NSObject>
-
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item;
-
 @end
 
 
@@ -24,16 +32,7 @@
 - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items;
 
 @property (nonatomic, assign) BOOL autoScrolling;
+@property (nonatomic) NSTimeInterval switchTimeInterval; // default for 10.0s
 @property (nonatomic, assign) id<SGFocusImageFrameDelegate> delegate;
-@end
 
-@interface UIView (Layout)
-- (CGFloat)x;
-- (void)setX:(CGFloat)xx;
-- (CGFloat)y;
-- (void)setY:(CGFloat)yy;
-- (CGFloat)width;
-- (void)setWidth:(CGFloat)w;
-- (CGFloat)height;
-- (void)setHeight:(CGFloat)h;
 @end

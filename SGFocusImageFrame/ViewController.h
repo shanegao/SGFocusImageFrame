@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SGFocusImageFrame.h"
-#import "SGFocusImageItem.h"
 
 @interface ViewController : UIViewController <SGFocusImageFrameDelegate>
 

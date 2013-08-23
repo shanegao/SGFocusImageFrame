@@ -75,7 +75,10 @@
     SGFocusImageItem *item2 = [[SGFocusImageItem alloc] initWithTitle:@"title2" image:[UIImage imageNamed:@"photo2.jpg"] tag:1002];
     SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:@"title3" image:[UIImage imageNamed:@"photo3.jpg"] tag:1003];
     SGFocusImageItem *item4 = [[SGFocusImageItem alloc] initWithTitle:@"title4" image:[UIImage imageNamed:@"photo4.jpg"] tag:1004];
+    
     SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:[[UIScreen mainScreen] bounds] delegate:self focusImageItems:item1, item2, item3, item4, nil];
+    
+    imageFrame.switchTimeInterval = 5.f;
     
     [[[[UIApplication sharedApplication] delegate] window] addSubview:imageFrame];
 }
