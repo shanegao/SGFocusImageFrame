@@ -9,6 +9,10 @@
 #import "SGFocusImageFrame.h"
 #import <objc/runtime.h>
 
+
+NSString *const SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
+CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
+
 #pragma mark - SGFocusImageItem Definition
 @implementation SGFocusImageItem
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
@@ -38,12 +42,15 @@
 - (void)switchFocusImageItems;
 @end
 
-static NSString *SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
-static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
-
 @implementation SGFocusImageFrame
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items
+- (void)dealloc
+{
+    objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id)initWithFrame:(CGRect)frame
+           delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -54,7 +61,9 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)firstItem, ...
+- (id)initWithFrame:(CGRect)frame
+           delegate:(id<SGFocusImageFrameDelegate>)delegate
+    focusImageItems:(SGFocusImageItem *)firstItem, ...
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -80,23 +89,20 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
     return self;
 }
 
-- (void)dealloc
-{
-    objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-
 - (void)initImageFrame
 {
     [self initParameters];
     [self setupViews];
 }
+
 #pragma mark - private methods
+
 - (void)initParameters
 {
     self.switchTimeInterval = SWITCH_FOCUS_PICTURE_INTERVAL;
     self.autoScrolling = YES;
 }
+
 - (void)setupViews
 {
     NSArray *imageItems = objc_getAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY);
@@ -165,6 +171,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 10.0; //switch interval time
 }
 
 #pragma mark - ScrollView MOve
+
 - (void)moveToTargetPage:(NSInteger)targetPage
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchFocusImageItems) object:nil];

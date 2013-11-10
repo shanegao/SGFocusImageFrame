@@ -1,13 +1,12 @@
 //
 //  AppDelegate.m
-//  SGFocusImageFrame
+//  Demo
 //
-//  Created by Shane Gao on 17/6/12.
-//  Copyright (c) 2012 Shane Gao. All rights reserved.
+//  Created by Shane Gao on 13-11-10.
+//  Copyright (c) 2013年 touchmob.com. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
 
 @implementation AppDelegate
@@ -16,9 +15,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.window.rootViewController = nav;
+    ViewController *vc = [[ViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nc;
+    //
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
+extern NSString *const SG_FOCUS_ITEM_ASS_KEY ;
+extern CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL; //switch interval time
+
 @interface SGFocusImageItem : NSObject
 @property (nonatomic, strong)  NSString     *title;
 @property (nonatomic, strong)  UIImage      *image;

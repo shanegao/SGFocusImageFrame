@@ -78,7 +78,7 @@
     
     SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:[[UIScreen mainScreen] bounds] delegate:self focusImageItems:item1, item2, item3, item4, nil];
     
-    imageFrame.switchTimeInterval = 5.f;
+    imageFrame.autoScrolling = NO;
     
     [[[[UIApplication sharedApplication] delegate] window] addSubview:imageFrame];
 }

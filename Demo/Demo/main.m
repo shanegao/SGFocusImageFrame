@@ -1,16 +1,16 @@
 //
 //  main.m
-//  SGFocusImageFrame
+//  Demo
 //
-//  Created by Shane Gao on 17/6/12.
-//  Copyright (c) 2012 Shane Gao. All rights reserved.
+//  Created by Shane Gao on 13-11-10.
+//  Copyright (c) 2013年 touchmob.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char * argv[])
 {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
