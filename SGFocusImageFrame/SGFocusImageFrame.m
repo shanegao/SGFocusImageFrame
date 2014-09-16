@@ -9,9 +9,9 @@
 #import "SGFocusImageFrame.h"
 #import <objc/runtime.h>
 
+static const void *SG_FOCUS_ITEM_ASS_KEY = &SG_FOCUS_ITEM_ASS_KEY;
 
-NSString *const SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
-CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
+#define HEIGHT_OF_PAGE_CONTROL 20.f
 
 #pragma mark - SGFocusImageItem Definition
 @implementation SGFocusImageItem
@@ -25,36 +25,33 @@ CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
     }
     return self;
 }
+
 + (id)itemWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
 {
     return [[SGFocusImageItem alloc] initWithTitle:title image:image tag:tag];
 }
+
 @end
 
 #pragma mark - SGFocusImageFrame Definition
 
 @interface SGFocusImageFrame ()
-
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
-
-- (void)setupViews;
-- (void)switchFocusImageItems;
 @end
 
 @implementation SGFocusImageFrame
 
 - (void)dealloc
 {
-    objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (id)initWithFrame:(CGRect)frame
-           delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items
+- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItemsArrray:(NSArray *)items
 {
     self = [super initWithFrame:frame];
     if (self) {
-        objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         self.delegate = delegate;
         [self initImageFrame];
     }
@@ -70,19 +67,15 @@ CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
         NSMutableArray *imageItems = [NSMutableArray array];  
         SGFocusImageItem *eachItem;
         va_list argumentList;
-        if (firstItem)
-        {                                  
+        if (firstItem) {
             [imageItems addObject: firstItem];
             va_start(argumentList, firstItem);       
-            while((eachItem = va_arg(argumentList, SGFocusImageItem *)))
-            {
+            while((eachItem = va_arg(argumentList, SGFocusImageItem *))) {
                 [imageItems addObject: eachItem];            
             }
             va_end(argumentList);
         }
-        
-        objc_setAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY, imageItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
+        objc_setAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY, imageItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         self.delegate = delegate;
         [self initImageFrame];
     }
@@ -99,18 +92,17 @@ CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
 
 - (void)initParameters
 {
-    self.switchTimeInterval = SWITCH_FOCUS_PICTURE_INTERVAL;
+    self.switchTimeInterval = 10.f;
     self.autoScrolling = YES;
 }
 
 - (void)setupViews
 {
-    NSArray *imageItems = objc_getAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY);
     CGFloat mainWidth = self.frame.size.width, mainHeight = self.frame.size.height;
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, mainWidth, mainHeight)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, mainWidth, mainHeight - HEIGHT_OF_PAGE_CONTROL)];
     
-    CGSize size = CGSizeMake(mainWidth, 20);
+    CGSize size = CGSizeMake(mainWidth, HEIGHT_OF_PAGE_CONTROL);
     CGRect pcFrame = CGRectMake(mainWidth *.5 - size.width *.5, mainHeight - size.height, size.width, size.height);
     UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:pcFrame];
     [pageControl addTarget:self action:@selector(pageControlTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -121,38 +113,47 @@ CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
     scrollView.layer.cornerRadius = 10;
     scrollView.layer.borderWidth = 1 ;
     scrollView.layer.borderColor = [[UIColor lightGrayColor ] CGColor];
-    */
+     */
+    scrollView.delegate = self;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
+    scrollView.directionalLockEnabled = YES;
+    scrollView.alwaysBounceHorizontal = YES;
     
-    pageControl.numberOfPages = imageItems.count;
     pageControl.currentPage = 0;
     
-    scrollView.delegate = self;
-    
     // single tap gesture recognizer
-    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(singleTapGestureRecognizer:)];
+    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureRecognizer:)];
     tapGestureRecognize.delegate = self;
-    tapGestureRecognize.numberOfTapsRequired = 1;
     [scrollView addGestureRecognizer:tapGestureRecognize];
     
+    NSArray *imageItems = objc_getAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY);
+    pageControl.numberOfPages = imageItems.count;
+    
     CGSize scrollViewSize = scrollView.frame.size;
-    scrollView.contentSize = CGSizeMake(scrollViewSize.width * imageItems.count, scrollViewSize.height);
+    
     for (int i = 0; i < imageItems.count; i++) {
         SGFocusImageItem *item = [imageItems objectAtIndex:i];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * scrollViewSize.width, 0, scrollViewSize.width, scrollViewSize.height)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * scrollViewSize.width, 0.f, scrollViewSize.width, scrollViewSize.height)];
         imageView.image = item.image;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         [scrollView addSubview:imageView];
     }
     
+    scrollView.contentSize = CGSizeMake(scrollViewSize.width * imageItems.count, mainHeight - HEIGHT_OF_PAGE_CONTROL);
     self.scrollView = scrollView;
     self.pageControl = pageControl;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+}
+
 #pragma mark - Actions
-- (IBAction)pageControlTapped:(id)sender
+
+- (void)pageControlTapped:(id)sender
 {
     UIPageControl *pc = (UIPageControl *)sender;
     [self moveToTargetPage:pc.currentPage];
@@ -161,11 +162,17 @@ CGFloat const SWITCH_FOCUS_PICTURE_INTERVAL = 10.f; //switch interval time
 - (void)singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
     int targetPage = (int)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
-    NSArray *imageItems = objc_getAssociatedObject(self, (__bridge const void *)SG_FOCUS_ITEM_ASS_KEY);
+    NSArray *imageItems = objc_getAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY);
     if (targetPage > -1 && targetPage < imageItems.count) {
         SGFocusImageItem *item = [imageItems objectAtIndex:targetPage];
-        if ([self.delegate respondsToSelector:@selector(foucusImageFrame:didSelectItem:)]) {
-            [self.delegate foucusImageFrame:self didSelectItem:item];
+        //delegate 
+        if (_delegate && [_delegate respondsToSelector:@selector(foucusImageFrame:didSelectItem:)]) {
+            [_delegate foucusImageFrame:self didSelectItem:item];
+        }
+        
+        //block
+        if (_didSelectItemBlock) {
+            _didSelectItemBlock(item);
         }
     }
 }

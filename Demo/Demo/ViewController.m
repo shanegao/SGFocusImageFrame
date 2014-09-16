@@ -36,33 +36,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
 
 
-#pragma mark - 
+#pragma mark - Setup Views
+
 - (void)setupViews
 {
+    self.view.backgroundColor = [UIColor lightGrayColor];
     SGFocusImageItem *item1 = [[SGFocusImageItem alloc] initWithTitle:@"title1" image:[UIImage imageNamed:@"banner1"] tag:0];
     SGFocusImageItem *item2 = [[SGFocusImageItem alloc] initWithTitle:@"title2" image:[UIImage imageNamed:@"banner2"] tag:1];
     SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:@"title3" image:[UIImage imageNamed:@"banner3"] tag:2];
     SGFocusImageItem *item4 = [[SGFocusImageItem alloc] initWithTitle:@"title4" image:[UIImage imageNamed:@"banner4"] tag:4];
     
-    CGRect theFrame = CGRectMake(0, 100, self.view.bounds.size.width, 80.0);
-    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:theFrame
-                                                                    delegate:self
-                                                             focusImageItems:item1, item2, item3, item4, nil];
-    [self.view addSubview:imageFrame];
-    
-    
-    NSArray *imageItems = [NSArray arrayWithObjects:item1, item2, item3, item4, nil];
-    SGFocusImageFrame *bottomImageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 80.f) delegate:self focusImageItemsArrray:imageItems];
+    SGFocusImageFrame *bottomImageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 64.f, self.view.frame.size.width, 100.0) delegate:self focusImageItems:item1, item2, item3, item4, nil];
     bottomImageFrame.autoScrolling = YES;
     [self.view addSubview:bottomImageFrame];
     
@@ -76,13 +62,21 @@
     SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:@"title3" image:[UIImage imageNamed:@"photo3.jpg"] tag:1003];
     SGFocusImageItem *item4 = [[SGFocusImageItem alloc] initWithTitle:@"title4" image:[UIImage imageNamed:@"photo4.jpg"] tag:1004];
     
-    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:[[UIScreen mainScreen] bounds] delegate:self focusImageItems:item1, item2, item3, item4, nil];
-    
+    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:[[UIScreen mainScreen] bounds] delegate:nil focusImageItems:item1, item2, item3, item4, nil];
+    __weak __typeof(&*imageFrame) weakImageFrame = imageFrame;
+    imageFrame.didSelectItemBlock = ^(SGFocusImageItem *item) {
+        NSLog(@"%@ tapped", item.title);
+        if (item.tag == 1004) {
+            [weakImageFrame removeFromSuperview];
+        }
+    };
     imageFrame.autoScrolling = NO;
     
     [[[[UIApplication sharedApplication] delegate] window] addSubview:imageFrame];
 }
-#pragma mark -
+
+#pragma mark - SGFocusImageFrameDelegate
+
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
 {
     NSLog(@"%@ tapped", item.title);
